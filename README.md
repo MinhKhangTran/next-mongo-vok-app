@@ -27,26 +27,26 @@ User goes to the homepage:
 
 # Milestones
 
-1. Start a new Next js App using typescript
-   - create tsconfig.json
-   - add baseUrl and no relative paths
-   - create relevant pages
+1. Start a new Next js App using typescript✅
+   - create tsconfig.json ✅
+   - add baseUrl and no relative paths✅
+   - create relevant pages✅
      - /
      - /create
      - /v/:slug
      - /profile
-2. Style the pages using ChakraUI
-   - initialize ChakraUI Provider
-   - Create a Layout with Navigation to navigate through pages
-   - Mobile Responsive
-3. Add MongoDB Atlas (backendish)
-   - initialize a new Mongo DB
-   - connect it to the App
+2. Add MongoDB Atlas (backendish)
+   - initialize a new Mongo DB✅
+   - connect it to the App✅
    - create a new Vok Schema with mongoose
    - create API Route to read and create voks
      - /api/voks
    - create API Route to read vok by ID, delete and update vok
      - /api/voks/[id]
+3. Style the pages using ChakraUI
+   - initialize ChakraUI Provider
+   - Create a Layout with Navigation to navigate through pages
+   - Mobile Responsive
 4. Create Components from the frontend to call this functions
    - fetch voks on the homepage (getStaticProps)
    - use react-hook-forms for creating new voks
