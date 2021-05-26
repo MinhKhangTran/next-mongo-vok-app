@@ -16,6 +16,7 @@ User goes to the homepage:
 - Next js
 - typescript
 - axios
+- nprogress
 - moment/ react-moment
 - ChakraUI
 - React Context
@@ -29,7 +30,6 @@ User goes to the homepage:
 1. Start a new Next js App using typescript
    - create tsconfig.json
    - add baseUrl and no relative paths
-   - Create a Layout with Navigation to navigate through pages
    - create relevant pages
      - /
      - /create
@@ -37,6 +37,7 @@ User goes to the homepage:
      - /profile
 2. Style the pages using ChakraUI
    - initialize ChakraUI Provider
+   - Create a Layout with Navigation to navigate through pages
    - Mobile Responsive
 3. Add MongoDB Atlas (backendish)
    - initialize a new Mongo DB
