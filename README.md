@@ -27,6 +27,8 @@ User goes to the homepage:
 # Milestones
 
 1. Start a new Next js App using typescript
+   - create tsconfig.json
+   - add baseUrl and no relative paths
    - Create a Layout with Navigation to navigate through pages
    - create relevant pages
      - /
