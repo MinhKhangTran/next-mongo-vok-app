@@ -2,13 +2,25 @@ import { IVok } from "@/interfaces/vok";
 import mongoose, { Schema } from "mongoose";
 
 //create Schema
-const VokSchema: Schema = new Schema(
+const vokSchema: Schema = new Schema(
   {
-    koreanisch: { type: String, lowercase: true, trim: true },
-    englisch: { type: String, lowercase: true, trim: true },
+    korean: {
+      type: String,
+      required: [true, "Please add a korean word"],
+      lowercase: true,
+      trim: true,
+    },
+    english: {
+      type: String,
+      required: [true, "Please add an english word"],
+      lowercase: true,
+      trim: true,
+    },
   },
   { timestamps: true }
 );
 
 //export model
-export const Vok = mongoose.model<IVok>("Vok", VokSchema);
+const Vok = mongoose.model<IVok>("Vok", vokSchema);
+//either take existing model or create a new vok model
+export default mongoose.models.Vok || Vok;
