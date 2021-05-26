@@ -21,6 +21,6 @@ const vokSchema: Schema = new Schema(
 );
 
 //export model
-const Vok = mongoose.model<IVok>("Vok", vokSchema);
 //either take existing model or create a new vok model
-export default mongoose.models.Vok || Vok;
+let Vok = mongoose.models.Vok || mongoose.model<IVok>("Vok", vokSchema);
+export default Vok;
