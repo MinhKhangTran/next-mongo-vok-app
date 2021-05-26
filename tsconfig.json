@@ -26,7 +26,9 @@
       "@/components/*": ["components/*"],
       "@/config/*": ["config/*"],
       "@/utils/*": ["utils/*"],
-      "@/styles/*": ["styles/*"]
+      "@/styles/*": ["styles/*"],
+      "@/models/*": ["models/*"],
+      "@/interfaces/*": ["interfaces/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],

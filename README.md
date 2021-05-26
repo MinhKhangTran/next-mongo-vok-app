@@ -38,7 +38,7 @@ User goes to the homepage:
 2. Add MongoDB Atlas (backendish)
    - initialize a new Mongo DB✅
    - connect it to the App✅
-   - create a new Vok Schema with mongoose
+   - create a new Vok Schema with mongoose✅
    - create API Route to read and create voks
      - /api/voks
    - create API Route to read vok by ID, delete and update vok
