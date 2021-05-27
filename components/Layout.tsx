@@ -1,5 +1,19 @@
-import { Box, Divider, Flex, Spacer, Stack } from "@chakra-ui/react";
-import * as React from "react";
+import {
+  Box,
+  Divider,
+  Drawer,
+  DrawerBody,
+  DrawerCloseButton,
+  DrawerContent,
+  DrawerHeader,
+  DrawerOverlay,
+  Flex,
+  IconButton,
+  Spacer,
+  Stack,
+  useDisclosure,
+} from "@chakra-ui/react";
+import React from "react";
 import {
   FaPlus,
   FaRegBell,
@@ -8,6 +22,7 @@ import {
   FaRegPaperPlane,
   FaRegQuestionCircle,
   FaUser,
+  FaBars,
 } from "react-icons/fa";
 import { Logo } from "@/components/Logo";
 import { NavLink } from "@/components/NavLink";
@@ -29,9 +44,11 @@ const Layout = ({
   keywords?: string;
 }) => {
   const router = useRouter();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef<any | null>();
 
   return (
-    <Flex>
+    <Flex direction={{ base: "column", md: "row" }}>
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -40,13 +57,14 @@ const Layout = ({
       <Flex
         height="100vh"
         width={{
-          base: "full",
+          base: "100vw",
           sm: "xs",
         }}
         direction="column"
         borderRightWidth="1px"
         px={6}
         py={8}
+        display={{ base: "none", md: "flex" }}
       >
         <Box mb={8}>
           <Logo color="blue.600" />
@@ -81,6 +99,57 @@ const Layout = ({
           image="francis"
           email="francis@example.com"
         />
+      </Flex>
+      {/* mobile view */}
+      <Flex px={6} pt={8} display={{ base: "flex", md: "none" }}>
+        <Box>
+          <Logo color="blue.600" />
+        </Box>
+        <Spacer />
+        <IconButton
+          aria-label="bars"
+          icon={<FaBars />}
+          variant="ghost"
+          colorScheme="blue"
+          fontSize="20px"
+          ref={btnRef}
+          onClick={onOpen}
+        ></IconButton>
+        <Drawer
+          isOpen={isOpen}
+          placement="right"
+          onClose={onClose}
+          finalFocusRef={btnRef}
+        >
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerCloseButton />
+            <DrawerHeader>Menu</DrawerHeader>
+
+            <DrawerBody>
+              <Flex height="88vh" direction="column">
+                <NavLink
+                  isActive={router.pathname === "/profile"}
+                  label="My Voks"
+                  icon={FaUser}
+                  page="/profile"
+                />
+                <NavLink
+                  isActive={router.pathname === "/create"}
+                  label="Add new Vok"
+                  icon={FaPlus}
+                  page="/create"
+                />
+                <Spacer />
+                <UserProfile
+                  name="Francis"
+                  image="francis"
+                  email="francis@example.com"
+                />
+              </Flex>
+            </DrawerBody>
+          </DrawerContent>
+        </Drawer>
       </Flex>
       <Box p={8}>{children}</Box>
     </Flex>
