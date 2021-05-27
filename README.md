@@ -44,8 +44,9 @@ User goes to the homepage:
    - create API Route to read vok by ID, delete and update vok✅
      - /api/voks/[id]
 3. Style the pages using ChakraUI
-   - initialize ChakraUI Provider
+   - initialize ChakraUI Provider✅
    - Create a Layout with Navigation to navigate through pages
+   - use nprogress
    - Mobile Responsive
 4. Create Components from the frontend to call this functions
    - fetch voks on the homepage (getStaticProps)
@@ -58,7 +59,8 @@ User goes to the homepage:
    - if logged in show user profile page with made voks
 6. Comments?
 7. Like?
-8. Lauch on Vercel
-   - deploy DB
+8. Search Func?
+9. Lauch on Vercel
+   - add db into next.config.js
    - deploy app
    - add env variables to vercel
