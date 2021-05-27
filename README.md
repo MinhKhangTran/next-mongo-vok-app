@@ -49,7 +49,7 @@ User goes to the homepage:
    - use nprogress✅
    - Mobile Responsive✅
 4. Create Components from the frontend to call this functions
-   - fetch voks on the homepage (getStaticProps)
+   - fetch voks on the homepage (getStaticProps)✅
    - use react-hook-forms for creating new voks
    - create Icons to delete and update
    - use react-hook-forms for updating an old vok => get voks data in form

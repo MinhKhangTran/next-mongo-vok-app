@@ -58,13 +58,17 @@ const Layout = ({
         height="100vh"
         width={{
           base: "100vw",
-          sm: "xs",
+          sm: "300px",
         }}
         direction="column"
         borderRightWidth="1px"
         px={6}
         py={8}
         display={{ base: "none", md: "flex" }}
+        position="fixed"
+        top="0"
+        left="0"
+        zIndex="docked"
       >
         <Box mb={8}>
           <Logo color="blue.600" />
@@ -151,7 +155,9 @@ const Layout = ({
           </DrawerContent>
         </Drawer>
       </Flex>
-      <Box p={8}>{children}</Box>
+      <Box ml={{ base: "0", md: "300px" }} p={8}>
+        {children}
+      </Box>
     </Flex>
   );
 };
