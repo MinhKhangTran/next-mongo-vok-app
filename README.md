@@ -45,7 +45,7 @@ User goes to the homepage:
      - /api/voks/[id]
 3. Style the pages using ChakraUI
    - initialize ChakraUI Provider✅
-   - Create a Layout with Navigation to navigate through pages
+   - Create a Layout with Navigation to navigate through pages✅
    - use nprogress
    - Mobile Responsive
 4. Create Components from the frontend to call this functions
