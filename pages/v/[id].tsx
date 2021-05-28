@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import VokForm from "@/components/VokForm";
 import { NEXT_URL } from "@/config/index";
 import { IVok } from "@/interfaces/vok";
-import { Box, Heading } from "@chakra-ui/layout";
+import { Heading } from "@chakra-ui/layout";
 import axios from "axios";
 import { GetServerSideProps } from "next";
 

@@ -1,6 +1,6 @@
 import {
   Box,
-  Divider,
+  // Divider,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -16,18 +16,18 @@ import {
 import React from "react";
 import {
   FaPlus,
-  FaRegBell,
-  FaRegChartBar,
-  FaRegHeart,
-  FaRegPaperPlane,
-  FaRegQuestionCircle,
-  FaUser,
+  // FaRegBell,
+  // FaRegChartBar,
+  // FaRegHeart,
+  // FaRegPaperPlane,
+  // FaRegQuestionCircle,
+  // FaUser,
   FaBars,
 } from "react-icons/fa";
 import { Logo } from "@/components/Logo";
 import { NavLink } from "@/components/NavLink";
-import { SearchField } from "@/components/SearchField";
-import { UserProfile } from "@/components/UserProfile";
+// import { SearchField } from "@/components/SearchField";
+// import { UserProfile } from "@/components/UserProfile";
 import Head from "next/head";
 
 import { useRouter } from "next/router";

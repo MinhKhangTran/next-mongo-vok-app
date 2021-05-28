@@ -3,7 +3,7 @@ import { CardContent } from "@/components/CardContent";
 import { CardHeader } from "@/components/CardHeader";
 import Layout from "@/components/Layout";
 import { Property } from "@/components/Property";
-import { Button, ButtonGroup, IconButton } from "@chakra-ui/button";
+import { ButtonGroup, IconButton } from "@chakra-ui/button";
 import { Box, Flex, Grid, Heading, Spacer } from "@chakra-ui/layout";
 import axios from "axios";
 

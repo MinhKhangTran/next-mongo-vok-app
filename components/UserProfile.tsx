@@ -8,7 +8,7 @@ export interface IUserProfileProps {
 }
 
 export const UserProfile = (props: IUserProfileProps) => {
-  const { name, image, email } = props;
+  const { name, email } = props;
   return (
     <HStack spacing="4" px="2">
       <Avatar name={name} />
