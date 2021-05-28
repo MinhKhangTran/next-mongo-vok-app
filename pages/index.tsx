@@ -69,13 +69,15 @@ const HomePage = ({ data }: { data: IVoks[] }) => {
                         aria-label="edit"
                         icon={<HiPencilAlt />}
                         colorScheme="blue"
-                        fontSize="20px"
+                        fontSize="15px"
+                        size="sm"
                       />
                       <IconButton
                         aria-label="delete"
                         icon={<FaTrash />}
                         colorScheme="red"
-                        fontSize="20px"
+                        fontSize="15px"
+                        size="sm"
                       />
                     </ButtonGroup>
                   }

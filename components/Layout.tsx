@@ -76,12 +76,12 @@ const Layout = ({
         {/* <SearchField mb={6} /> */}
         <Stack spacing={6}>
           <Stack>
-            <NavLink
+            {/* <NavLink
               isActive={router.pathname === "/profile"}
               label="My Voks"
               icon={FaUser}
               page="/profile"
-            />
+            /> */}
             <NavLink
               isActive={router.pathname === "/create"}
               label="Add new Vok"
@@ -98,11 +98,11 @@ const Layout = ({
         </Stack> */}
         </Stack>
         <Spacer />
-        <UserProfile
+        {/* <UserProfile
           name="Francis"
           image="francis"
           email="francis@example.com"
-        />
+        /> */}
       </Flex>
       {/* mobile view */}
       <Flex px={6} pt={8} display={{ base: "flex", md: "none" }}>
@@ -132,12 +132,12 @@ const Layout = ({
 
             <DrawerBody>
               <Flex height="88vh" direction="column">
-                <NavLink
+                {/* <NavLink
                   isActive={router.pathname === "/profile"}
                   label="My Voks"
                   icon={FaUser}
                   page="/profile"
-                />
+                /> */}
                 <NavLink
                   isActive={router.pathname === "/create"}
                   label="Add new Vok"
@@ -145,11 +145,11 @@ const Layout = ({
                   page="/create"
                 />
                 <Spacer />
-                <UserProfile
+                {/* <UserProfile
                   name="Francis"
                   image="francis"
                   email="francis@example.com"
-                />
+                /> */}
               </Flex>
             </DrawerBody>
           </DrawerContent>
