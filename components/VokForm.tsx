@@ -46,7 +46,7 @@ const VokForm = ({ vok }: { vok?: IVok }) => {
         korean,
         english,
       });
-      //   console.log(vok);
+
       if (vok) {
         router.push("/");
       }
