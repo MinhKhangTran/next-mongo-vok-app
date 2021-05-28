@@ -7,7 +7,7 @@ export interface ILogoProp {
 
 export const Logo = (props: ILogoProp) => {
   return (
-    <Heading color={props.color}>
+    <Heading fontSize="xl" color={props.color}>
       <Link href="/">VokApp</Link>
     </Heading>
   );

@@ -6,7 +6,7 @@ import { Property } from "@/components/Property";
 import { Button, ButtonGroup, IconButton } from "@chakra-ui/button";
 import { Box, Flex, Grid, Heading, Spacer } from "@chakra-ui/layout";
 import axios from "axios";
-import { GetStaticProps } from "next";
+
 import { NEXT_URL } from "../config";
 import { HiPencilAlt } from "react-icons/hi";
 import { FaTrash } from "react-icons/fa";
@@ -14,6 +14,9 @@ import { IoMdSettings } from "react-icons/io";
 
 import Moment from "react-moment";
 import { useState } from "react";
+import { useRouter } from "next/router";
+import useSWR, { mutate } from "swr";
+import { Spinner } from "@chakra-ui/spinner";
 
 interface IVoks {
   _id: string;
@@ -23,8 +26,24 @@ interface IVoks {
   updatedAt: string;
 }
 
-const HomePage = ({ data }: { data: IVoks[] }) => {
+const HomePage = () => {
   const [show, setShow] = useState("");
+  const router = useRouter();
+  const { data, error } = useSWR<IVoks[], any>("/api/voks");
+
+  const deleteVok = async (id: string) => {
+    try {
+      const { data } = await axios.delete(`${NEXT_URL}/api/voks/${id}`);
+      if (data) {
+        mutate("/api/voks");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  if (error) return <Box>failed to load...</Box>;
+  if (!data) return <Spinner />;
 
   return (
     <Layout title="VokApp | Homepage">
@@ -32,10 +51,14 @@ const HomePage = ({ data }: { data: IVoks[] }) => {
         Voks
       </Heading>
       <Grid
-        templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2, 1fr)" }}
+        templateColumns={{
+          base: "repeat(1, 1fr)",
+          md: "repeat(2, 1fr)",
+          lg: "repeat(3, 1fr)",
+        }}
         gap="4"
       >
-        {data.map((vok, index) => {
+        {data?.map((vok, index) => {
           return (
             <Card mt={8} key={vok._id} maxW="3xl" mx="auto">
               <CardContent>
@@ -43,7 +66,11 @@ const HomePage = ({ data }: { data: IVoks[] }) => {
                 <Property label="English" value={vok.english} />
 
                 <Flex align="center" px="6" py="4" color="gray.500">
-                  <Moment fromNow>{vok.createdAt}</Moment>
+                  <Moment fromNow>
+                    {vok.createdAt === vok.updatedAt
+                      ? vok.createdAt
+                      : vok.updatedAt}
+                  </Moment>
                   <Spacer></Spacer>
                   <IconButton
                     aria-label="settings"
@@ -71,6 +98,9 @@ const HomePage = ({ data }: { data: IVoks[] }) => {
                         colorScheme="blue"
                         fontSize="15px"
                         size="sm"
+                        onClick={() => {
+                          router.push(`/v/${vok._id}`);
+                        }}
                       />
                       <IconButton
                         aria-label="delete"
@@ -78,6 +108,9 @@ const HomePage = ({ data }: { data: IVoks[] }) => {
                         colorScheme="red"
                         fontSize="15px"
                         size="sm"
+                        onClick={() => {
+                          deleteVok(vok._id);
+                        }}
                       />
                     </ButtonGroup>
                   }
@@ -91,13 +124,13 @@ const HomePage = ({ data }: { data: IVoks[] }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const { data } = await axios(`${NEXT_URL}/api/voks`);
-  // console.log(voks);
+// export const getStaticProps: GetStaticProps = async (context) => {
+//   const { data } = await axios(`${NEXT_URL}/api/voks`);
+//   // console.log(voks);
 
-  return {
-    props: { data },
-  };
-};
+//   return {
+//     props: { data },
+//   };
+// };
 
 export default HomePage;

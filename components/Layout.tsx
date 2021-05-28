@@ -58,7 +58,7 @@ const Layout = ({
         height="100vh"
         width={{
           base: "100vw",
-          sm: "300px",
+          sm: "200px",
         }}
         direction="column"
         borderRightWidth="1px"
@@ -84,7 +84,7 @@ const Layout = ({
             /> */}
             <NavLink
               isActive={router.pathname === "/create"}
-              label="Add new Vok"
+              label="Add Vok"
               icon={FaPlus}
               page="/create"
             />
@@ -155,7 +155,7 @@ const Layout = ({
           </DrawerContent>
         </Drawer>
       </Flex>
-      <Box ml={{ base: "0", md: "300px" }} p={8}>
+      <Box ml={{ base: "0", md: "200px" }} p={8}>
         {children}
       </Box>
     </Flex>
